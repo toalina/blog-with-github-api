@@ -13,11 +13,8 @@ module.exports = {
     dest: dest + '/assets/'
   },
   sass: {
-    src: src + "/sass/**/*.{sass,scss}",
-    dest: dest + '/css/',
-    settings: {
-      indentedSyntax: true,
-    }
+    src: src + "/sass/**/*.scss",
+    dest: dest + '/css/'
   },
   html: {
     src: src + "/templates/*.html",
