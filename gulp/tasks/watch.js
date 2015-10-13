@@ -4,6 +4,6 @@ var config   = require('../config');
 gulp.task('watch', function() {
   gulp.watch(config.javascript.src, ['webpack']);
   gulp.watch(config.sass.src,   ['sass']);
-  gulp.watch(config.markup.src, ['markup']);
+  gulp.watch(config.html.src, ['html']);
   // Watchify will watch and recompile our JS, so no need to gulp.watch it
 });
