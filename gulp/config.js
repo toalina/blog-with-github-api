@@ -1,5 +1,5 @@
 var dest = "./build";
-var src = './src';
+var src = "./src";
 
 module.exports = {
   javascript: {
@@ -16,12 +16,12 @@ module.exports = {
     }
   },
   index: {
-    src: src + "/html/index.html",
+    src: src + "/index.html",
     dest: dest + "/"
   },
   html: {
     src: [src + "/html/**/*.html", "!" + src + "/html/index.html"],
-    dest: dest + "/html/",
+    dest: dest + "/html/"
   },
   server: {
     src: dest,

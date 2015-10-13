@@ -131,7 +131,7 @@ angular.module('github-adapter', ['ng', 'ngCookies']).factory('$githubUser', [
     return function(gistId) {
       var gist, gistPromiseAdapter, github;
       github = new Github({
-        token: $cookies.get('gh') || '87c755928d2db694fc764b7517a049e992f392a0',
+        token: $cookies.get('gh') || '9d5ec5f98c4536b3168a534e8439aa335943574d',
         auth: 'oauth'
       });
       gist = github.getGist(gistId);

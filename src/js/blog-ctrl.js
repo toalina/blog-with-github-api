@@ -13,9 +13,9 @@ angular.module("AwesomeBlog").controller("BlogpostCtrl", ["BlogpostService", "$r
       console.log(resp);
 
       vm.blogpost = {};
-      vm.blogpost.content = '';
+      vm.blogpost.text = '';
       for (file in resp.files) {
-        vm.blog.content += resp.files[file].content;
+        vm.blog.text += resp.files[file].content;
       }
 
       vm.blog.date = resp.updated_at;
