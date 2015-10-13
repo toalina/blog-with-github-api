@@ -7,13 +7,11 @@ var handleErrors = require('../util/handleErrors');
 var autoprefixer = require('gulp-autoprefixer');
 var config = require('../config').sass;
 
+
 gulp.task('sass', function () {
   return gulp.src(config.src)
     .pipe(sass({
       includePaths: require('node-neat').includePaths
-    }))
-    .pipe(sass({
-      includePaths: require('node-bourbon').includePaths
     }))
 
     .pipe(sourcemaps.init())
