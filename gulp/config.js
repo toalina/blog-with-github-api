@@ -19,6 +19,10 @@ module.exports = {
       indentedSyntax: true,
     }
   },
+  html: {
+    src: src + "/templates/*.html",
+    dest: dest + "/templates/",
+  },
   server: {
     src: dest,
     livereload: true,
