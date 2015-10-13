@@ -1,0 +1,37 @@
+.btn-primary {
+  @include button(color('primary'), color('base'), color('accent'), color('base'), 8em, 'small');
+  @media only screen and (min-width: $break) {
+    width: 12em;
+  }
+}
+
+.btn-primary-alt {
+  @include button(color('base'), color('primary'), color('primary'), color('base'), 8em, 'small');
+  &:hover {
+    border-color: color('primary');
+  }
+  @media only screen and (min-width: $break) {
+    width: 12em;
+  }
+}
+
+.btn-secondary {
+  @include button(color('accent'), color('base'), color('base'), color('primary'), 10em, 'small');
+  &:hover {
+    border-color: color('base');
+  }
+  @media only screen and (min-width: $break) {
+    width: 12em;
+  }
+}
+
+.btn-small {
+  @include button(color('base'), color('primary'), color('primary'), color('base'), 8em, 'x-small');
+  padding: .5em;
+  &:hover {
+    border-color: color('primary');
+  }
+  @media only screen and (min-width: $break) {
+    width: 6em;
+  }
+}

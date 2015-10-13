@@ -1,0 +1,45 @@
+// mini nav section
+.sub-nav {
+  font-size: font-size('x-small');
+  font-family: font-family('primary', 'light');
+  text-align: center;
+  padding: 0.5em;
+  @media screen and (min-width: 50em) {
+    float: left;
+    padding-left: 5em;
+  }
+  li {
+    display: inline;
+  }
+  li:after {
+    content:'\00B7';
+    padding-left:5px;
+    font-weight: 700;
+  }
+  li:last-child {
+    font-family: font-family('primary', 'medium');
+    text-transform: uppercase;
+    &:after {
+      content: '';
+    }
+  }
+  a {
+    text-decoration: none;
+    color: color('primary');
+    &:hover {
+      color: color('accent');
+    }
+  }
+}
+
+.sub-nav-wrapper {
+  padding: 0.5em;
+  border-bottom: 1px solid;
+  border-color: rgba(0, 0, 0, .1);
+  @media screen and (min-width: 50em) {
+    padding-left: 5em;
+    height: 2.5em;
+  }
+}
+
+

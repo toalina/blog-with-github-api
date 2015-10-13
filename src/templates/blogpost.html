@@ -1,0 +1,41 @@
+<!-- Blog Main SECTION -->
+<section class="page-banner">
+  <h1>Blog</h1>
+  <p>The secular cooling that must someday overtake our planet has already gone far indeed with our neighbour. Its physical condition is still largely a mystery, but we know now that</p>
+</section>
+
+<!-- MINI NAV  -->
+<div class="sub-nav-wrapper">
+  <nav class="sub-nav">
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li>BLOG</li>
+      <!-- BLOG link is breadcrumbs -->
+    </ul>
+  </nav>
+  <div class="share-social-icons">
+    <p>Share</p>
+    <ul>
+      <li><a class="icon-twitter" href="#"></a></li>
+      <li><a class="icon-facebook" href="#"></a></li>
+      <li><a class="icon-google" href="#"></a></li>
+      <li><a class="icon-pinterest" href="#"></a></li>
+    </ul>
+  </div>
+</div>
+
+<section class="blog-container">
+<!--  <h1>List of Blogposts!</h1> -->
+  <article ng-repeat="blogpost in vm.blogposts" class="blog-summary">
+    <h1>{{ blogpost.title }}</h1>
+    <p> {{ blogpost.text | limitTo: 300 }}{{ blogpost.text.length > 300 ? '...' : '' }}</p>
+    <ul class="blog-metadata">
+      <li>{{ blogpost.author }}</li>
+      <li class="date">{{ blogpost.date | date:"MM-dd-yyyy" }}</li>
+      <li>4 comments</li>
+    </ul>
+    <a class="btn-primary" href="#/blogposts/{{ blogpost._id }}">Read More</a>
+    <a class="btn-small" ng-click="vm.delete(blogpost)">Delete</a>
+  </article>
+  <a class="btn-primary-alt" href="#/blogposts/new">Add New</a>
+</section>

@@ -1,0 +1,39 @@
+.contact-info-wrapper {
+  text-align: center;
+  padding: 1em;
+  font-family: font-family('primary', 'regular');
+  line-height: 1.5em;
+  @media screen and (min-width: 50em) {
+    padding: 2em;
+    width: 50em;
+    display: inline;
+  }
+}
+.address-wrapper {
+  padding-bottom: 1em;
+  @media screen and (min-width: 50em) {
+    float: left;
+    padding-left: 5em;
+    text-align: left;
+    margin-top: 3em;
+  }
+  address {
+    font-style: normal;
+  }
+}
+.phone-email-wrapper {
+  @media screen and (min-width: 50em) {
+    float: left;
+    padding-left: 5em;
+    text-align: left;
+    margin-top: 3em;
+  }
+  a {
+    text-decoration: none;
+    color: color($key: 'primary');
+    &:hover {
+      color: color($key: 'accent');
+    }
+  }
+}
+

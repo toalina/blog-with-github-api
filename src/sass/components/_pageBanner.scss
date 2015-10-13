@@ -1,0 +1,23 @@
+@mixin banner($background, $heading-family, $text-family, $heading-size, $text-size, $text-color) {
+  background-color: color($background);
+  h1 {
+    font-family: $heading-family;
+    font-size: font-size($heading-size);
+    margin: 0;
+  }
+  p {
+    font-family: $text-family;
+    font-size:  font-size($text-size);
+    font-color: color($text-color);
+    opacity: .5;
+    margin: .5em 0 0 0;
+  }
+}
+
+.page-banner {
+  @include banner('accent', font-family('secondary', 'regular'), font-family('secondary', 'light'), 'mega-small', 'large', 'secondary');
+  padding: 1.5em;
+  @media screen and (min-width: 50em) {
+    padding: 5em 35% 5em 10%;
+  }
+}

@@ -1,0 +1,28 @@
+%icon-font-base {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+$iconPrimary:
+(pinterest 1.5em "\e800")
+(google 1.5em "\e801")
+(twitter 1.5em "\e802")
+(facebook 1.5em "\e803")
+(linkedin 1.5em "\e804");
+
+@each $iconP in $iconPrimary {
+  .icon-#{nth($iconP, 1)} {
+    @extend %icon-font-base;
+    font-size: #{nth($iconP, 2)};
+    color: #1e1d24;
+    width: 100%;
+    &:before {
+      content: nth($iconP, 3);
+    }
+  }
+}

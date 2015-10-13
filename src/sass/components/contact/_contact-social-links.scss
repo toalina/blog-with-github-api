@@ -1,0 +1,61 @@
+.contact-social-links-wrapper {
+  padding-bottom: 5em;
+  margin: 0 auto;
+  width: 20em;
+  @media screen and (min-width: 50em) {
+    float: right;
+    padding-right: 5em;
+    padding-bottom: 6em;
+    width: 30em;
+    display: inline;
+    margin-top: 0;
+  }
+  ul {
+    @include flex-box($align: center, $wrap: wrap, $direction: row, $justify: center);
+    padding-left: 0;
+    // margin-right: 2em;
+    // width: 100%;
+  }
+  li {
+    @include flexitem;
+    list-style-type: none;
+    display: inline;
+    padding: 0.5em;
+  }
+  a {
+    position: relative;
+    // Icon styles in a:before
+    &:before {
+      font-size: 1.5em;
+      background-color: color('base');
+      border-radius: 50%; // Icon is in the <a> box
+      border-color: transparent;
+    }
+    &:hover {
+      color: color('accent');
+    }
+  }
+  // Span for text for text styles
+  span {
+    @extend %border-circle;
+    text-transform: uppercase;
+    font-size: 0.5em;
+    text-align: center;
+    padding-top: 3.5em;
+  }
+}
+// Code for the circle
+%border-circle {
+  position: absolute;
+  border: 0.1em solid color('secondary');
+  border-radius: 50%;
+  width: 8em;
+  height: 4.5em;
+  top: 0.1em;
+  left: 0;
+  content:"";
+  z-index: -1;
+}
+
+
+

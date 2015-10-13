@@ -1,0 +1,21 @@
+.header-container {
+	background-color: color('primary');
+	@include flex-box($align: center, $wrap: wrap, $direction: row, $justify: space-between);
+	align-content: flex-start;
+	padding: 4em 3em 4em 2em;
+
+	h1 {
+		color: color('base');
+	}
+
+  a {
+    color: color('base');
+    font-family: font-family('primary', 'regular');
+    font-size: font-size('x-small');
+    &:hover {
+      color: color('accent');
+    }
+  }
+}
+
+
