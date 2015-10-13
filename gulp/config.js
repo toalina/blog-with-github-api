@@ -8,10 +8,6 @@ module.exports = {
     entry: src + '/js/entry.js',
     outputFilename: 'packed.js'
   },
-  assets: {
-    src: src + "/assets/**/*",
-    dest: dest + '/assets/'
-  },
   sass: {
     src: src + "/sass/**/*.{sass,scss}",
     dest: dest + '/css/',
@@ -19,8 +15,12 @@ module.exports = {
       indentedSyntax: true,
     }
   },
+  index: {
+    src: src + "/html/index.html",
+    dest: dest + "/"
+  },
   html: {
-    src: src + "/html/*.html",
+    src: [src + "/html/**/*.html", "!" + src + "/html/index.html"],
     dest: dest + "/html/",
   },
   server: {
