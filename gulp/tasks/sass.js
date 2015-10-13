@@ -24,7 +24,7 @@ gulp.task('sass', function () {
 
     .pipe(sourcemaps.write())
 
-    .pipe(autoprefixer({ browsers: ['last 2 version'], cascade: false }))
+    // .pipe(autoprefixer({ browsers: ['last 2 version'], cascade: false }))
 
     .pipe(gulp.dest(config.dest));
 });

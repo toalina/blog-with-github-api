@@ -1,32 +1,33 @@
 require('angular');
 require('angular-route');
+require('./github-adapter.js');
 
 (function(){
 
   'use strict';
   // Declare app level module which depends on filters, and services
-  var AwesomeBlogApp = angular.module('AwesomeBlog', ['ngRoute']).
+  var AwesomeBlogApp = angular.module('AwesomeBlog', ['ngRoute', 'github-adapter']).
 
   config(["$routeProvider", function ($routeProvider) {
     $routeProvider
 
     ////route home page blog posts//////////
       .when("/blogposts", {
-      templateUrl: "templates/blogpost.html",
+      templateUrl: "html/blogpost.html",
       controller: "BlogpostsCtrl as vm",
     })
 
     /////form to make more blog posts///////
       .when("/blogposts/new", {
-      templateUrl: "templates/form.html",
+      templateUrl: "html/form.html",
       controller: "BlogFormCtrl as vm",
     })
       .when("/blogposts/:blogpost_id/edit", {
-      templateUrl: "templates/form.html",
+      templateUrl: "html/form.html",
       controller: "BlogFormCtrl as vm",
     })
       .when("/blogposts/:blogpost_id", {
-      templateUrl: "templates/blog.html",
+      templateUrl: "html/blog.html",
       controller: "BlogpostCtrl as vm",
     })
       .otherwise({

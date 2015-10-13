@@ -6,8 +6,20 @@ angular.module("AwesomeBlog").controller("BlogpostCtrl", ["BlogpostService", "$r
   start();
 
   function start() {
-    BlogpostService.get($routeParams.blogpost_id).then(function(resp) {
-      vm.blogpost = resp.data;
+    BlogpostService
+    .get($routeParams.blogpost_id)
+    .then(function(resp) {
+
+      console.log(resp);
+
+      vm.blogpost = {};
+      vm.blogpost.content = '';
+      for (file in resp.files) {
+        vm.blog.content += resp.files[file].content;
+      }
+
+      vm.blog.date = resp.updated_at;
+      vm.blog.author = resp.owner.login;
     });
   }
 }]);

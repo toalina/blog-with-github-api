@@ -20,8 +20,8 @@ module.exports = {
     }
   },
   html: {
-    src: src + "/templates/*.html",
-    dest: dest + "/templates/",
+    src: src + "/html/*.html",
+    dest: dest + "/html/",
   },
   server: {
     src: dest,

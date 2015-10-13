@@ -1,17 +1,19 @@
 require("./app");
+require("./github-adapter.js");
 
 (function () {
   "use strict";
 
-  angular.module("AwesomeBlog").service("BlogpostService", ["$http", function ($http) {
+  angular.module("AwesomeBlog").service("BlogpostService", ["$http", "$githubGist",function ($http, $githubGist) {
     var urlRoot = "/blogposts";
 
     var Blog = {
       get: function (id) {
         if (angular.isDefined(id)) {
-          return $http.get(urlRoot + "/" + id);
+          return $githubGist(id).read();
         } else {
-          return $http.get(urlRoot);
+          // return $http.get(urlRoot);
+          console.warn('root url');
         }
       },
       update: function (blog) {

@@ -4,9 +4,10 @@
   "description": "",
   "dependencies": {
     "angular": "^1.4.7",
+    "angular-cookies": "^1.4.7",
     "angular-route": "^1.4.7",
     "bourbon": "^4.2.5",
-    "github-api": "^0.10.6",
+    "github-api": "git+ssh://git@github.com/jedfoster/github.git",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-changed": "^1.1.1",
