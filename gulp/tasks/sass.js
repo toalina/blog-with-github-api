@@ -1,6 +1,5 @@
 var gulp         = require('gulp');
 var sass         = require('gulp-sass');
-var bourbon      = require('node-bourbon');
 var neat         = require('node-neat');
 var sourcemaps   = require('gulp-sourcemaps');
 var handleErrors = require('../util/handleErrors');
@@ -9,15 +8,13 @@ var config = require('../config').sass;
 
 gulp.task('sass', function () {
   return gulp.src(config.src)
-    .pipe(sass({
-      includePaths: require('node-neat').includePaths
-    }))
-    .pipe(sass({
-      includePaths: require('node-bourbon').includePaths
-    }))
-
     .pipe(sourcemaps.init())
-
+    .pipe(sass({
+    includePaths: [['sass'].concat(neat),
+     require('node-bourbon').includePaths,
+     require('node-neat').includePaths
+    ]
+    }))
     .pipe(sass(config.settings))
 
     .on('error', handleErrors)

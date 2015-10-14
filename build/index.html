@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en" ng-app="AwesomeBlog">
+<html lang="en" ng-app="gisty">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-<!--     <link rel="stylesheet" href="css/main.css">
- -->    <title>AwesomeBlog!</title>
+    <link rel="stylesheet" href="css/main.css">
+    <title>AwesomeBlog!</title>
   </head>
   <body>
     <!-- NAV -->
@@ -35,9 +35,12 @@
       </nav>
     </header>
 
-
     <!-- SOME KIND OF NG-VIEW THING -->
-    <div ng-controller="BlogpostsCtrl" ng-view></div>
+    <div ng-controller="GistsCtrl" ng-view>
+       Hello {{ "Newman" }}
+
+    </div>
+
 
     <!-- CONTACT SECTION  -->
     <section>
@@ -95,6 +98,5 @@
 
     <!-- SCRIPT TAGS -->
     <script src="js/packed.js"></script>
-
   </body>
 </html>

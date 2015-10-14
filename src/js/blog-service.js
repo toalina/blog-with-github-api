@@ -1,10 +1,9 @@
 require("./app");
-require("./github-adapter.js");
 
 (function () {
   "use strict";
 
-  angular.module("AwesomeBlog").service("BlogpostService", ["$http", "$githubGist",function ($http, $githubGist) {
+  angular.module("AwesomeBlog").service("BlogpostService", ["$http", function ($http) {
     var urlRoot = "/blogposts";
 
     var Blog = {

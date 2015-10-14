@@ -25,6 +25,3 @@ angular.module("AwesomeBlog").controller("BlogpostCtrl", ["BlogpostService", "$r
 }]);
 
 
-// GitHub Personal Access Token!!!
-// 87c755928d2db694fc764b7517a049e992f392a0
-

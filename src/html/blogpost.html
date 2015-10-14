@@ -23,8 +23,45 @@
     </ul>
   </div>
 </div>
-
+{{"You getting this???"}}
 <section class="blog-container">
+  <p nf-if="error">{{error}}</p>
+
+  <div ng-if="!error">
+    There are no error!
+    <input type="text" ng-model="search">
+    <p>Searching for: {{search}}</p>
+
+    <article ng-repeat="gist in gists|pager:pagination" class="blog-summary">
+     <!-- filter:search -->
+        <h1>{{gist.owner.login}}</h1>
+
+        <p> {{ gist.description }}</p>
+
+        <ul class="blog-metadata">
+          <li>{{ blogpost.author }}</li>
+          <li class="date">{{ gist.updated_at | date:"MM-dd-yyyy" }}</li>
+          <li>4 comments</li>
+        </ul>
+
+        <a href="{{gist.html_url}}">{{gist.id}}</a>
+        <pre>{{gist|json}}</pre>
+        <pre>{{gist.owner}}</pre>
+        <img src="{{gist.owner.avatar_url}}" alt="Alina's big face">
+        <!-- <pre> === Use monospace type -->
+
+        <ul>
+          <!-- Incomplete code -->
+          <li ng-repeat="file in gist.files">{{file.filename}}</li>
+        </ul>
+
+
+    </article>
+    <button type="button" ng-click="">Prev</button>
+    <button type="button" ng-click="">Next</button>
+
+  </div>
+
 <!--  <h1>List of Blogposts!</h1> -->
   <article ng-repeat="blogpost in vm.blogposts" class="blog-summary">
     <h1>{{ blogpost.title }}</h1>
@@ -39,3 +76,7 @@
   </article>
   <a class="btn-primary-alt" href="#/blogposts/new">Add New</a>
 </section>
+
+
+
+

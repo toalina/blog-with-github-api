@@ -9,11 +9,11 @@ module.exports = {
     outputFilename: 'packed.js'
   },
   sass: {
-    src: src + "/sass/**/*.{sass,scss}",
+    src: src + "/sass/{,*/}*.{scss,sass}",
     dest: dest + '/css/',
-    settings: {
-      indentedSyntax: true,
-    }
+    // settings: {
+    //   indentedSyntax: true,
+    // }
   },
   index: {
     src: src + "/index.html",
