@@ -58,6 +58,24 @@ angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, $q
     $log.error('response', response);
   }
 
+  // angular.forEach loop to go through the object
+  // and grab selected key/values
+
+  // angular.forEach(data, function(gist) {
+  //   angular.forEach(gist.files, function (value, key) {
+  //     if (key == "raw_url") {
+  //       $http.get(value, {
+  //         headers: {
+  //           'Authorization': 'token 20da3492df504c853cf25c6ef1f47c4e3ad398e4', /// THIS CAN get around the limit
+  //         }
+  //       }).then(function (resp) {
+  //           // spit out just the selected key/value stuff?!
+
+  //       });
+  //     }
+  //   });
+  // });
+
   $scope.message = "Hello Gists!";
 
 });

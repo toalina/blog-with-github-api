@@ -21,7 +21,9 @@
           <ul>
             <li ng-repeat="gist in gists|pager:pagination">  <!-- filter:search -->
               <a href="{{gist.html_url}}">{{gist.id}}</a>
-              <pre>{{gist|json}}</pre>
+              <!-- <pre>{{gist|json}}</pre> -->
+              <pre>{{gist.owner}}</pre>
+              <img src="{{gist.owner.avatar_url}}" alt="Alina's big face">
               <!-- <pre> === Use monospace type -->
 
               <ul>
