@@ -36,10 +36,37 @@
     </header>
 
     <!-- SOME KIND OF NG-VIEW THING -->
-    <div ng-controller="GistsCtrl" ng-view>
+    <main ng-view ng-controller="GistsCtrl">
        Hello {{ "Newman" }}
 
-    </div>
+    </main>
+    <article ng-repeat="gist in gists|pager:pagination" class="blog-summary">
+     <!-- filter:search -->
+      <h1>{{gist.owner.login}}</h1>
+
+      <p> {{ gist.description }}</p>
+
+      <ul class="blog-metadata">
+        <li>{{ blogpost.author }}</li>
+        <li class="date">{{ gist.updated_at | date:"MM-dd-yyyy" }}</li>
+        <li>4 comments</li>
+      </ul>
+
+      <a href="{{gist.html_url}}">{{gist.id}}</a>
+      <pre>{{gist|json}}</pre>
+      <pre>{{gist.owner}}</pre>
+      <img src="{{gist.owner.avatar_url}}" alt="Alina's big face">
+      <!-- <pre> === Use monospace type -->
+
+      <ul>
+        <!-- Incomplete code -->
+        <li ng-repeat="file in gist.files">{{file.filename}}</li>
+      </ul>
+
+      <a class="btn-primary" href="#/blogposts/{{ blogpost._id }}">Read More</a>
+      <a class="btn-small" ng-click="vm.delete(blogpost)">Delete</a>
+
+    </article>
 
 
     <!-- CONTACT SECTION  -->

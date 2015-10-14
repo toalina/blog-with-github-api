@@ -1,10 +1,29 @@
 {
-  "name": "",
+  "name": "blogwithangularandmongo",
   "version": "1.0.0",
-  "description": "",
+  "description": "A awesome blog!",
+  "main": "server.js",
+  "scripts": {
+    "start": "webpack-dev-server --content-base app --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brain11f/mean-stack-1.git"
+  },
+  "keywords": [
+    "code",
+    "fellows",
+    "blog",
+    "angular",
+    "mongodb"
+  ],
+  "author": "Brian Finck and Chris Holt and Alina To",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brain11f/mean-stack-1/issues"
+  },
   "dependencies": {
     "angular": "^1.4.7",
-    "angular-cookies": "^1.4.7",
     "angular-route": "^1.4.7",
     "bourbon": "^4.2.5",
     "gulp": "^3.8.11",

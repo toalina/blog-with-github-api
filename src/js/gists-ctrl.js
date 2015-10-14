@@ -1,4 +1,6 @@
-require('.gist-app.js');
+var angular = require('angular');
+
+var app = angular.module('gisty', []);
 
 //http.get can pass in a URL, then a config stuff like headers
 // get only accept 2 arguments
@@ -19,7 +21,7 @@ angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, $q
 
   $http.get('https://api.github.com/users/toalina/gists', {
     headers: {
-      'Authorization': 'token e2ae42a83c810214405ddcda8adc5fd5db6d488c',
+      'Authorization': 'token 9b4516da3085d9242727bbe5dd7ba3410a9eb4ba',
       /// THIS CAN get around the limit
     }
   }).then(successHandler, errorHandler);  // .then() accpet 2 arguments

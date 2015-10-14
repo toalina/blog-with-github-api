@@ -13,7 +13,7 @@ require('angular-route');
     ////route home page blog posts//////////
       .when("/blogposts", {
       templateUrl: "html/blogpost.html",
-      controller: "GistsCtrl",
+      controller: "BlogpostsCtrl as vm",
     })
 
     /////form to make more blog posts///////
