@@ -46,6 +46,7 @@
 
 	__webpack_require__(1);
 	__webpack_require__(4);
+	__webpack_require__(5);
 
 
 /***/ },
@@ -28995,7 +28996,7 @@
 
 	  $scope.pagination = {
 	    currentPage: 1,
-	    perPage: 3,
+	    perPage: 4,
 	    getOffset: function () {
 	      return $scope.pagination.currentPage * $scope.pagination.perPage;
 	    },
@@ -29039,6 +29040,34 @@
 	// then inject within the ()
 	// We don't actually need it!!!
 	// ng-annotate
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var angular = __webpack_require__(2);
+
+	/////// ====== CODE FOR OFFSET ======//
+	angular.module('gisty').filter('offset', function ($filter) {
+	  return function(input, start) {
+	    if (input) {
+	      start = parseInt(start, 10);
+	      return input.slice(start); // with starting point, then go from there
+	    }
+	  };
+	});
+
+	////// ======= CODE FOR PAGER ======== //
+	angular.module('gisty').filter('pager', function ($filter) {
+	  return function(results, pagerObj) {
+	    var filteredResults;
+	    console.log(pagerObj);
+	    filteredResults = $filter('offset')(results, pagerObj.getOffset());
+	    filteredResults = $filter('limitTo')(filteredResults, pagerObj.perPage);
+	    return filteredResults;
+	  };
+	});
 
 
 /***/ }

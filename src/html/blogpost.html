@@ -32,7 +32,6 @@
     There are no error!
     <input type="text" ng-model="search">
     <p>Searching for: {{search}}</p>
-
     <article ng-repeat="gist in gists|pager:pagination" class="blog-summary">
      <!-- filter:search -->
       <h1>{{gist.owner.login}}</h1>
@@ -46,8 +45,6 @@
       </ul>
 
       <a href="{{gist.html_url}}">{{gist.id}}</a>
-      <pre>{{gist|json}}</pre>
-      <pre>{{gist.owner}}</pre>
       <img src="{{gist.owner.avatar_url}}" alt="Alina's big face">
       <!-- <pre> === Use monospace type -->
 
@@ -62,8 +59,8 @@
     </article>
     <a class="btn-primary-alt" href="#/blogposts/new">Add New</a>
 
-    <button type="button" ng-click="">Prev</button>
-    <button type="button" ng-click="">Next</button>
+    <button type="button" ng-click="$scope.pagination.prevPage()">Prev</button>
+    <button type="button" ng-click="$scope.pagination.nextPage()">Next</button>
 
   </div>
 </section>

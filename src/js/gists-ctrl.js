@@ -10,7 +10,7 @@ angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, to
 
   $scope.pagination = {
     currentPage: 1,
-    perPage: 3,
+    perPage: 4,
     getOffset: function () {
       return $scope.pagination.currentPage * $scope.pagination.perPage;
     },
