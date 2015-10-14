@@ -1,0 +1,35 @@
+// share social icons
+.share-social-icons {
+  font-size: font-size('x-small');
+  font-family: font-family('primary', 'light');
+  text-align: center;
+  padding: 0.5em;
+  //On media call do this:
+  @media screen and (min-width: 50em) {
+    @include flex-box($align: center, $direction: row);
+    align-content: flex-end;
+    float: right;
+    margin-right: 10%;
+  }
+
+  p {
+    display: inline;
+    color: color('primary');
+    opacity: .4;
+  }
+  ul {
+    display: inline;
+    padding-left: 0;
+  }
+  li { // icons
+    display: inline;
+    padding-left: 0.5em;
+  }
+  a {
+    opacity: .4;
+    &:hover {
+      color: color('accent');
+      opacity: 1;
+    }
+  }
+}

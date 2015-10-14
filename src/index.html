@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" ng-app="gisty">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="css/main.css">
+    <title>AwesomeBlog!</title>
+  </head>
+  <body>
+    <!-- NAV -->
+    <header class="header-container">
+      <h1 class="logo">intelly</h1>
+      <nav class="primary-nav-wrap">
+        <ul>
+          <li><a class="mobile-nav" href="#">Menu</a>
+            <ul class="main-nav">
+              <li><a href="#">HOME</a></li>
+              <li><a href="#">PAGES</a></li>
+              <li><a href="#">BLOG</a></li>
+              <li><a href="#">PORTFOLIO</a>
+                <ul>
+                  <li><a href="#">Web Design</a></li>
+                  <li><a href="#">Photography</a></li>
+                  <li><a href="#">Consulting</a></li>
+                  <li><a href="#">IOS Develpment</a></li>
+                </ul>
+              </li>
+              <li><a href="#">SHORTCODES</a></li>
+              <li><a href="#">FEATURES</a></li>
+              <li><a href="#">CONTACT</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- SOME KIND OF NG-VIEW THING -->
+    <main ng-view ng-controller="GistsCtrl">
+       Hello {{ "Newman" }}
+
+    </main>
+    <article ng-repeat="gist in gists|pager:pagination" class="blog-summary">
+     <!-- filter:search -->
+      <h1>{{gist.owner.login}}</h1>
+
+      <p> {{ gist.description }}</p>
+
+      <ul class="blog-metadata">
+        <li>{{ blogpost.author }}</li>
+        <li class="date">{{ gist.updated_at | date:"MM-dd-yyyy" }}</li>
+        <li>4 comments</li>
+      </ul>
+
+      <a href="{{gist.html_url}}">{{gist.id}}</a>
+      <pre>{{gist|json}}</pre>
+      <pre>{{gist.owner}}</pre>
+      <img src="{{gist.owner.avatar_url}}" alt="Alina's big face">
+      <!-- <pre> === Use monospace type -->
+
+      <ul>
+        <!-- Incomplete code -->
+        <li ng-repeat="file in gist.files">{{file.filename}}</li>
+      </ul>
+
+      <a class="btn-primary" href="#/blogposts/{{ blogpost._id }}">Read More</a>
+      <a class="btn-small" ng-click="vm.delete(blogpost)">Delete</a>
+
+    </article>
+
+
+    <!-- CONTACT SECTION  -->
+    <section>
+      <div class="learn-more-wrapper">
+        <h1>Serene in their assurance of their empire over matter</h1>
+        <p>No one would have believed in the last years of the nine-teenth century that this world was being watched keenly and closely by intelligence grater than man's</p>
+        <div class="learn-button-wrapper">
+          <a class="btn-secondary" href="#">Contact Now</a>
+          <a class="btn-secondary" href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="contact-info-wrapper">
+        <div class="address-wrapper">
+          <address>
+            2319 Hilltop Haven Drive<br>
+            Upper Greenwood Lake, NJ 07421
+          </address>
+        </div>
+        <div class="phone-email-wrapper">
+          <a href="tel:+16624076792">662-407-6792</a><br>
+          <a href="mailto:contact@intell.com" target="_top">contact@intell.com</a>
+        </div>
+      </div>
+      <div class="contact-social-links-wrapper">
+        <ul>
+          <li>
+            <a class="icon-twitter" href="#">
+              <span>Follow Us</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-facebook" href="#">
+              <span>Like Us</span>
+            </a>
+          </li>
+          <li>
+            <a class="icon-linkedin" href="#">
+              <span>Connect</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FOOTER  -->
+    <footer>
+      <ul>
+        <li>&#169; 2014 intelly LLC</li>
+        <li><a href="#">TERMS OF USE</a></li>
+        <li><a href="#">PRIVACY POLICY</a></li>
+        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">SUPPORT</a></li>
+      </ul>
+    </footer>
+
+    <!-- SCRIPT TAGS -->
+    <script src="js/packed.js"></script>
+    <script src="js/token.js"></script>
+  </body>
+</html>

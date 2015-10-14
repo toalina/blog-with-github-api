@@ -1,0 +1,30 @@
+footer {
+  text-align: center;
+  border-top: 0.1em solid black;
+  padding: 1.5em;
+  clear: both;
+  font-family: font-family('primary', 'light');
+  font-size: font-size('x-small');
+  letter-spacing: 0.1em;
+  @media screen and (min-width: 50em) {
+    clear: both;
+  }
+  ul {
+
+  }
+  li {
+    list-style-type: none;
+    padding: 0.1em;
+    @media screen and (min-width: 50em) {
+      display: inline;
+      padding: 0.5em;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: color('primary');
+    &:hover {
+      color: color('accent');
+    }
+  }
+}

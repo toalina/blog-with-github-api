@@ -1,0 +1,42 @@
+.learn-more-wrapper {
+  @include flex-box($align: center, $wrap: wrap, $direction: column, $justify: center);
+  text-align: center;
+  padding: 1em;
+  background: color('accent');
+  color: color('base');
+  margin: 0 0 1.5em 0;
+  @media only screen and (min-width: $break) {
+    padding: 2em 0 4em 0;
+  }
+
+  h1 {
+    font-family: font-family('primary', 'bold');
+    font-size: font-size('xx-large');
+    padding-bottom: 1em;
+    padding-top: 1em;
+    @media only screen and (min-width: $break) {
+      padding-bottom: .5em;
+    }
+  }
+  p {
+    font-family: font-family('primary', 'regular');
+    font-size: font-size('small');
+    padding-bottom: 1em;
+    line-height: 1.5em;
+    @media screen and (min-width: $break) {
+      width: 50%;
+      // padding: 2em 10em;
+    }
+  }
+
+  .learn-button-wrapper {
+
+    .btn-secondary {
+      display: inline-flex;
+      margin: 1em auto;
+      @media only screen and (min-width: $break) {
+        margin: 1em .5em;
+      }
+    }
+  }
+}

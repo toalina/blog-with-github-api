@@ -1,27 +1,30 @@
 var dest = "./build";
-var src = './src';
+var src = "./src";
 
 module.exports = {
   javascript: {
     src: src + '/js/**/*.js',
     dest: dest + '/js/',
-    entry: src + '/js/app.js',
-    outputFilename: 'app.js'
-  },
-  assets: {
-    src: src + "/assets/**/*",
-    dest: dest + '/assets/'
+    entry: src + '/js/entry.js',
+    outputFilename: 'packed.js'
   },
   sass: {
-    src: src + "/css/**/*.{sass,scss}",
+    src: src + "/sass/{,*/}*.{scss,sass}",
     dest: dest + '/css/',
-    settings: {
-      indentedSyntax: true, // Enable .sass syntax!
-    }
+    // settings: {
+    //   indentedSyntax: true,
+    // }
+  },
+  index: {
+    src: src + "/index.html",
+    dest: dest + "/"
   },
   html: {
-    src: src + '/**/*.html',
-    dest: dest
+    src: [src + "/html/**/*.html", "!" + src + "/html/index.html"],
+    dest: dest + "/html/"
+  },
+  ngConfig: {
+    dest: dest + '/js/'
   },
   server: {
     src: dest,
@@ -33,7 +36,6 @@ module.exports = {
   production: {
     cssSrc: dest + '/css/*.css',
     jsSrc: dest + '/js/*.js',
-    cssDest: dest + '/css/',
-    jsDest: dest + '/js/',
+    dest: dest
   }
 };

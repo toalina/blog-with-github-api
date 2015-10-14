@@ -1,0 +1,40 @@
+// Breakpoint for Media Queries
+$break: 50em;
+
+// Color Maps
+
+$colors: (
+  'base': #fff,
+  'primary': #1e1d24,
+  'secondary': #b4b3b5,
+  'accent': #97f1e7,
+);
+
+//text size maps
+$font-size: (
+  'x-small': em(14),
+  'small': em(16),
+  'medium': em(20),
+  'large': em(24),
+  'x-large': em(28),
+  'xx-large': em(34),
+  'mega-small': em(48),
+  'mega-medium': em(64),
+  'mega-large': em(72),
+);
+
+
+//font family map
+$font-family: (
+  'primary': (
+    'light': 'Ubuntu-Light' sans-serif,
+    'light-italic': 'Ubuntu-Light-Italic' sans-serif,
+    'regular': 'Ubuntu-Regular' sans-serif,
+    'medium': 'Ubuntu-Medium' sans-serif,
+    'bold': 'Ubuntu-Bold' sans-serif
+  ),
+  'secondary': (
+    'light': 'RobotoSlab-Light' serif,
+    'regular': 'RobotoSlab-Regular' serif
+  ),
+);

@@ -1,0 +1,31 @@
+<section class="page-banner">
+  <h1>Add or Edit A Blogpost</h1>
+</section>
+
+<!-- MINI NAV  -->
+<div class="sub-nav-wrapper">
+  <nav class="sub-nav">
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">BLOG</a></li>
+      <li>Add/Edit</li>
+    </ul>
+  </nav>
+  <div class="share-social-icons">
+    <p>Share</p>
+    <ul>
+      <li><a class="icon-twitter" href="#"></a></li>
+      <li><a class="icon-facebook" href="#"></a></li>
+      <li><a class="icon-google" href="#"></a></li>
+      <li><a class="icon-pinterest" href="#"></a></li>
+    </ul>
+  </div>
+</div>
+<!-- Form -->
+<form ng-submit="vm.save()" ng-controller="BlogFormCtrl">
+  <input type="text" ng-model="vm.blogpost.title" placeholder="Title" />
+  <textarea type="text" ng-model="vm.blogpost.text" placeholder="Text"></textarea>
+  <input type="text" ng-model="vm.blogpost.author" placeholder="Author" />
+  <input type="date" ng-model="vm.blogpost.date" placeholder="Date" />
+  <input class="btn-primary-alt" type="submit" name="Submit">
+</form>

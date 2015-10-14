@@ -1,0 +1,16 @@
+.blog-container {
+  padding: 5% 10%;
+  @media only screen and (min-width: $break) {
+    padding: 0 20%;
+  }
+  h1 {
+    font-family: font-family('primary', 'regular');
+    font-size: font-size('xx-large');
+    text-align: center;
+  }
+
+  .btn-primary-alt:last-child {
+    display: flex;
+    margin: 2em auto;
+  }
+}

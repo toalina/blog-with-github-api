@@ -1,0 +1,15 @@
+@mixin flex-box($align: null, $wrap: null, $direction: null, $justify: null, $basis: null) {
+  @include display(flex);
+  @include align-items($align);
+  @include flex-wrap($wrap);
+  @include flex-direction($direction);
+  @include justify-content($justify);
+  @include flex-basis($basis);
+}
+
+@mixin flexitem {
+  -webkit-flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
