@@ -1,7 +1,4 @@
-var angular = require('angular');
-
-var app = angular.module('gisty', []);
-
+require('./gists-app.js');
 //http.get can pass in a URL, then a config stuff like headers
 // get only accept 2 arguments
 
@@ -9,19 +6,25 @@ var app = angular.module('gisty', []);
 // { gist_id: "123",}, {headers: {..."}};...
 
 // ========= START OF CONTROLLER ======= //
-angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, $q) {
+angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, token) {
 
   $scope.pagination = {
     currentPage: 1,
-    perPage: 5,
+    perPage: 3,
     getOffset: function () {
       return $scope.pagination.currentPage * $scope.pagination.perPage;
     },
+    prevPage: function() {
+      $scope.pagination.currentPage--;
+    },
+    nextPage: function() {
+      $scope.pagination.currentPage++;
+    }
   };
 
   $http.get('https://api.github.com/users/toalina/gists', {
     headers: {
-      'Authorization': 'token 9b4516da3085d9242727bbe5dd7ba3410a9eb4ba',
+      'Authorization': 'token ' + token,
       /// THIS CAN get around the limit
     }
   }).then(successHandler, errorHandler);  // .then() accpet 2 arguments
@@ -42,31 +45,8 @@ angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, $q
     $log.error('response', response);
   }
 
-  // angular.forEach loop to go through the object
-  // and grab selected key/values
-  $scope.message = "Hello Gists!";
-
 });
 
-// ====== CODE FOR OFFSET ======//
-angular.module('gisty').filter('offset', function($filter) {
-  return function(input, start) {
-    if (input) {
-      start = parseInt(start, 10);
-      return input.slice(start); // with starting point, then go from there
-    }
-  };
-});
-// ======= CODE FOR PAGER ======== //
-angular.module('gisty').filter('pager', function ($filter) {
-  return function(results, pagerObj) {
-    var filteredResults;
-
-    filteredResults = $filter('offset')(results, pagerObj.getOffset());
-    filteredResults = $filter('limitTo')(filteredResults, pagerObj.perPage);
-    return filteredResults;
-  };
-});
 
 
 

@@ -23,6 +23,9 @@ module.exports = {
     src: [src + "/html/**/*.html", "!" + src + "/html/index.html"],
     dest: dest + "/html/"
   },
+  ngConfig: {
+    dest: dest + '/js/'
+  },
   server: {
     src: dest,
     livereload: true,
