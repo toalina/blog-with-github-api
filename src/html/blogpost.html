@@ -34,17 +34,17 @@
     <p>Searching for: {{search}}</p>
     <article ng-repeat="gist in gists|pager:pagination" class="blog-summary">
      <!-- filter:search -->
-      <h1>{{gist.owner.login}}</h1>
+      <h1>{{ gist.description }}</h1>
 
-      <p> {{ gist.description }}</p>
+      <p> {{ gist.files }}</p>
 
       <ul class="blog-metadata">
-        <li>{{ blogpost.author }}</li>
-        <li class="date">{{ gist.updated_at | date:"MM-dd-yyyy" }}</li>
+        <li>{{ gist.owner.login }}</li>
+        <li class="date">Created on {{ gist.created_at | date:"MM-dd-yyyy" }}</li>
         <li>4 comments</li>
       </ul>
 
-      <a href="{{gist.html_url}}">{{gist.id}}</a>
+      <a href="{{gist.html_url}}">View Original File</a>
       <img src="{{gist.owner.avatar_url}}" alt="Alina's big face">
       <!-- <pre> === Use monospace type -->
 
