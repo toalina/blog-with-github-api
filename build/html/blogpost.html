@@ -24,43 +24,51 @@
   </div>
 </div>
 
-{{"You getting this???"}}
 <section class="blog-container">
   <p nf-if="error">{{error}}</p>
-
   <div ng-if="!error">
     There are no error!
+
     <input type="text" ng-model="search">
     <p>Searching for: {{search}}</p>
+
     <article ng-repeat="gist in gists|pager:pagination" class="blog-summary">
      <!-- filter:search -->
-      <h1>{{gist.owner.login}}</h1>
-
-      <p> {{ gist.description }}</p>
-
-      <ul class="blog-metadata">
-        <li>{{ blogpost.author }}</li>
-        <li class="date">{{ gist.updated_at | date:"MM-dd-yyyy" }}</li>
-        <li>4 comments</li>
-      </ul>
+      <h1>{{ gist.description }}</h1>
 
       <a href="{{gist.html_url}}">{{gist.id}}</a>
-      <img src="{{gist.owner.avatar_url}}" alt="Alina's big face">
-      <!-- <pre> === Use monospace type -->
+      <img src="{{gist.owner.avatar_url}}" alt="Alina's big face" height="20%" width="20%">
 
-      <ul>
-        <!-- Incomplete code -->
-        <li ng-repeat="file in gist.files">{{file.filename}}</li>
+      <ul class="blog-metadata">
+        <li>Author: {{ gist.owner.login }}</li>
+        <li class="date">Created on: {{ gist.created_at | date:"MM-dd-yyyy" }}</li>
+        <li>{{ gist.comments }} Comments</li>
+
+        <!-- ////// These can access the object inside "files" object, and tap into a specific property //////   -->
+        <ul>
+          Filename(s):
+          <li ng-repeat="file in gist.files">
+            {{file.filename}}
+          </li>
+        </ul>
+        <ul>
+          Language(s):
+          <li ng-repeat="file in gist.files">
+            {{file.language}}
+          </li>
+        </ul>
+
       </ul>
 
       <a class="btn-primary" href="#/blogposts/{{ blog }}">Read More</a>
       <a class="btn-small" ng-click="vm.delete(blogpost)">Delete</a>
 
     </article>
+
     <a class="btn-primary-alt" href="#/blogposts/new">Add New</a>
 
-    <button type="button" ng-click="$scope.pagination.prevPage()">Prev</button>
-    <button type="button" ng-click="$scope.pagination.nextPage()">Next</button>
+    <a class="btn-small" ng-click="pagination.prevPage()">Prev</a>
+    <a class="btn-small" ng-click="pagination.nextPage()">Next</a>
 
   </div>
 </section>
