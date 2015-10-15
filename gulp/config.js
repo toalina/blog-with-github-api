@@ -20,7 +20,7 @@ module.exports = {
     dest: dest + "/"
   },
   html: {
-    src: [src + "/html/**/*.html", "!" + src + "/html/index.html"],
+    src: src + "/html/**/*.html",
     dest: dest + "/html/"
   },
   ngConfig: {
