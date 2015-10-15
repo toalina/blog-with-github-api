@@ -22,16 +22,17 @@ require("./gists-app.js");
         return $http.post(urlRoot, model, {
           headers: {
             'Authorization': 'token ' + token,
-            /// THIS CAN get around the limit
           }
         }).then(success(function() {
-          $location.path("/gists/" + model._id);
-        })
-      ),
+          $location.path(urlRoot + model._id);
+        }));
+      },
+
       delete: function (model) {
         return $http.delete(urlRoot + "/" + model._id);
       }
-    };
     return Gist;
+    },
   }]);
+
 }());

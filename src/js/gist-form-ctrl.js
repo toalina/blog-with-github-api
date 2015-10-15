@@ -3,7 +3,7 @@ require("./gists-app.js");
 (function() {
 'use strict';
 
-  angular.module("gisty").controller("GistFormCtrl", ["GistService", "$routeParams", "$location", function(GistService, $routeParams, $location) {
+  angular.module("gisty").controller("GistFormCtrl", ["GistService", "$routeParams", "$location", function (GistService, $routeParams, $location) {
 
       var vm = this;
 
