@@ -9,26 +9,24 @@ var route = require('angular-route');
 		$routeProvider
 
 		////route home page blog posts//////////
-			.when("/blogposts", {
+		.when("/gists", {
 			templateUrl: "html/blogpost.html",
-			controller: "GistsCtrl as vm",
+			controller: "GistListCtrl as vm",
 		})
 
 		/////form to make more blog posts///////
-			.when("/blogposts/new", {
+		.when("/gists/new", {
 			templateUrl: "html/form.html",
-			controller: "GistsCtrl as vm",
+			controller: "GistFormCtrl as vm",
 		})
-			.when("/blogposts/:blog", {
+		.when("/gists/:id", {
 			templateUrl: "html/blog.html",
 			controller: "GistsCtrl as vm",
 		})
-			.otherwise({
-			redirectTo: "/blogposts",
+		.otherwise({
+			redirectTo: "/gists",
 		});
-
 	}]);
-
 })();
 
 

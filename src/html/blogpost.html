@@ -1,78 +1,79 @@
-<!-- Blog Main SECTION -->
-<section class="page-banner">
-  <h1>Blog</h1>
-  <p>The secular cooling that must someday overtake our planet has already gone far indeed with our neighbour. Its physical condition is still largely a mystery, but we know now that</p>
-</section>
+<div ng-controller="GistsCtrl">
+  <!-- Blog Main SECTION -->
+  <section class="page-banner">
+    <h1>Blog</h1>
+    <p>The secular cooling that must someday overtake our planet has already gone far indeed with our neighbour. Its physical condition is still largely a mystery, but we know now that</p>
+  </section>
 
-<!-- MINI NAV  -->
-<div class="sub-nav-wrapper">
-  <nav class="sub-nav">
-    <ul>
-      <li><a href="#">HOME</a></li>
-      <li>BLOG</li>
-      <!-- BLOG link is breadcrumbs -->
-    </ul>
-  </nav>
-  <div class="share-social-icons">
-    <p>Share</p>
-    <ul>
-      <li><a class="icon-twitter" href="#"></a></li>
-      <li><a class="icon-facebook" href="#"></a></li>
-      <li><a class="icon-google" href="#"></a></li>
-      <li><a class="icon-pinterest" href="#"></a></li>
-    </ul>
-  </div>
-</div>
-
-<section class="blog-container">
-  <p nf-if="error">{{error}}</p>
-  <div ng-if="!error">
-    There are no error!
-
-    <input type="text" ng-model="search">
-    <p>Searching for: {{search}}</p>
-
-    <article ng-repeat="gist in gists|pager:pagination" class="blog-summary">
-     <!-- filter:search -->
-      <h1>{{ gist.description }}</h1>
-
-      <a href="{{gist.html_url}}">{{gist.id}}</a>
-      <img src="{{gist.owner.avatar_url}}" alt="Alina's big face" height="20%" width="20%">
-
-      <ul class="blog-metadata">
-        <li>Author: {{ gist.owner.login }}</li>
-        <li class="date">Created on: {{ gist.created_at | date:"MM-dd-yyyy" }}</li>
-        <li>{{ gist.comments }} Comments</li>
-
-        <!-- ////// These can access the object inside "files" object, and tap into a specific property //////   -->
-        <ul>
-          Filename(s):
-          <li ng-repeat="file in gist.files">
-            {{file.filename}}
-          </li>
-        </ul>
-        <ul>
-          Language(s):
-          <li ng-repeat="file in gist.files">
-            {{file.language}}
-          </li>
-        </ul>
-
+  <!-- MINI NAV  -->
+  <div class="sub-nav-wrapper">
+    <nav class="sub-nav">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li>BLOG</li>
+        <!-- BLOG link is breadcrumbs -->
       </ul>
-
-      <a class="btn-primary" href="#/blogposts/{{ blog }}">Read More</a>
-      <a class="btn-small" ng-click="vm.delete(blogpost)">Delete</a>
-
-    </article>
-
-    <a class="btn-primary-alt" href="#/blogposts/new">Add New</a>
-
-    <a class="btn-small" ng-click="pagination.prevPage()">Prev</a>
-    <a class="btn-small" ng-click="pagination.nextPage()">Next</a>
-
+    </nav>
+    <div class="share-social-icons">
+      <p>Share</p>
+      <ul>
+        <li><a class="icon-twitter" href="#"></a></li>
+        <li><a class="icon-facebook" href="#"></a></li>
+        <li><a class="icon-google" href="#"></a></li>
+        <li><a class="icon-pinterest" href="#"></a></li>
+      </ul>
+    </div>
   </div>
-</section>
 
+  <section class="blog-container">
+    <p nf-if="error">{{error}}</p>
+    <div ng-if="!error">
+      There are no error!
+
+      <input type="text" ng-model="search">
+      <p>Searching for: {{search}}</p>
+
+      <article ng-repeat="gist in gists|pager:pagination" class="blog-summary">
+       <!-- filter:search -->
+        <h1>{{ gist.description }}</h1>
+
+        <a href="{{gist.html_url}}">{{gist.id}}</a>
+        <img src="{{gist.owner.avatar_url}}" alt="Alina's big face" height="20%" width="20%">
+
+        <ul class="blog-metadata">
+          <li>Author: {{ gist.owner.login }}</li>
+          <li class="date">Created on: {{ gist.created_at | date:"MM-dd-yyyy" }}</li>
+          <li>{{ gist.comments }} Comments</li>
+
+          <!-- ////// These can access the object inside "files" object, and tap into a specific property //////   -->
+          <ul>
+            Filename(s):
+            <li ng-repeat="file in gist.files">
+              {{file.filename}}
+            </li>
+          </ul>
+          <ul>
+            Language(s):
+            <li ng-repeat="file in gist.files">
+              {{file.language}}
+            </li>
+          </ul>
+
+        </ul>
+
+        <a class="btn-primary" href="#/blogposts/{{ blog }}">Read More</a>
+        <a class="btn-small" ng-click="vm.delete(blogpost)">Delete</a>
+
+      </article>
+
+      <a class="btn-primary-alt" href="#/blogposts/new">Add New</a>
+
+      <a class="btn-small" ng-click="pagination.prevPage()">Prev</a>
+      <a class="btn-small" ng-click="pagination.nextPage()">Next</a>
+
+    </div>
+  </section>
+</div>
 
 
 
