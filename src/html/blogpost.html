@@ -35,8 +35,8 @@
     <article ng-repeat="gist in gists|pager:pagination" class="blog-summary">
      <!-- filter:search -->
       <h1>{{ gist.description }}</h1>
-      <p> {{ Gist Files Here}}</p>
-      <a href="{{gist.html_url}}">{{gist.id}}</a>
+      <!-- <p> {{ Gist Files Here}}</p> -->
+      <a href="{{gist.html_url}}">View Original</a>
       <img src="{{gist.owner.avatar_url}}" alt="Alina's big face" height="20%" width="20%">
 
       <ul class="blog-metadata">
