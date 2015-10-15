@@ -11,17 +11,17 @@ var route = require('angular-route');
 		////route home page blog posts//////////
 		.when("/gists", {
 			templateUrl: "html/blogpost.html",
-			controller: "GistListCtrl as vm",
+			controller: "GistsCtrl",
 		})
 
 		/////form to make more blog posts///////
 		.when("/gists/new", {
 			templateUrl: "html/form.html",
-			controller: "GistFormCtrl as vm",
+			controller: "GistsCtrl",
 		})
 		.when("/gists/:id", {
 			templateUrl: "html/blog.html",
-			controller: "GistsCtrl as vm",
+			controller: "GistsCtrl",
 		})
 		.otherwise({
 			redirectTo: "/gists",

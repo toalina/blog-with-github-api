@@ -10,7 +10,7 @@ require('./gists-app.js');
 angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, token) {
 
   $scope.pagination = {
-    currentPage: 1,
+    currentPage: 0,
     perPage: 4,
     getOffset: function () {
       return $scope.pagination.currentPage * $scope.pagination.perPage;
@@ -43,6 +43,12 @@ angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, to
     $scope.error = response.data;
     $log.error('response', response);
   }
+	
+	function deleteGist(id) {
+		$http.delete('https://api.github.com/users/toalina/gists/' + id );
+
+	}
+
 });
 // square brackets [ ] is just to say explicitly we need to use this,
 // then inject within the ()
