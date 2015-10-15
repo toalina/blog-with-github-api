@@ -1,5 +1,5 @@
 require('./gists-app.js');
-// require('./gists-filter.js');
+
 //http.get can pass in a URL, then a config stuff like headers
 // get only accept 2 arguments
 
@@ -7,7 +7,7 @@ require('./gists-app.js');
 // { gist_id: "123",}, {headers: {..."}};...
 
 // ========= START OF CONTROLLER ======= //
-angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, token) {
+angular.module('gisty').controller('GistsCtrl', function ($scope, $http, $log, token) {
 
   $scope.pagination = {
     currentPage: 0,
@@ -26,15 +26,11 @@ angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, to
   $http.get('https://api.github.com/users/toalina/gists', {
     headers: {
       'Authorization': 'token ' + token,
-      /// THIS CAN get around the limit
     }
   }).then(successHandler, errorHandler);  // .then() accpet 2 arguments
 
   function successHandler(response) {
     var data = response.data;
-    // data = angular.isArray(data) ? data : [data];
-    // if it's an array, OK! If not, Stick it into an array
-
     $scope.gists = response.data;
     $log.info('response', response);
   } // object comes with property of data
@@ -43,12 +39,6 @@ angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, to
     $scope.error = response.data;
     $log.error('response', response);
   }
-	
-	function deleteGist(id) {
-		$http.delete('https://api.github.com/users/toalina/gists/' + id );
-
-	}
-
 });
 // square brackets [ ] is just to say explicitly we need to use this,
 // then inject within the ()
