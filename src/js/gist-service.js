@@ -12,7 +12,7 @@ var app = require("./gists-app.js");
       get: function (id) {
         if (angular.isDefined(id)) {
           // return $githubGist(id).read();
-          return $http.get(urlRoot + "users/" + username + "/gists/", {
+          return $http.get(urlRoot + "/gists/" + id, {
             headers: {'Authorization': 'token ' + token,}
           });
         } else {

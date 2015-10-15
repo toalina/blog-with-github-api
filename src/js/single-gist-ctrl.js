@@ -3,15 +3,13 @@ require("./gists-app.js");
 angular.module('gisty').controller("SingleGistCtrl", ["GistService", "$scope", "$routeParams", "$log", function (GistService, $scope, $routeParams, $log) {
 
   // $scope.id = gists_id;
-    console.log("params: " + $routeParams.gist_id);
-    console.log("gist.id: " + gist.id);
-
+  console.log("params: " + $routeParams.id);
 
   start();
 
   function start() {
 
-    GistService.get($routeParams.gist_id)
+    GistService.get($routeParams.id)
 
     // $http.get('https://api.github.com/gists/' + gist.id, {
     //   headers: {
@@ -25,7 +23,7 @@ angular.module('gisty').controller("SingleGistCtrl", ["GistService", "$scope", "
   function successHandler(response) {
     var data = response.data;
     console.log(data);
-    $scope.gists = response.data;
+    $scope.gist = response.data;
     $log.info('response', response);
   } // object comes with property of data
 
