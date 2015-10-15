@@ -1,4 +1,5 @@
 require('./gists-app.js');
+// require('./gists-filter.js');
 //http.get can pass in a URL, then a config stuff like headers
 // get only accept 2 arguments
 
@@ -31,25 +32,18 @@ angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, to
 
   function successHandler(response) {
     var data = response.data;
-    data = angular.isArray(data) ? data : [data];
+    // data = angular.isArray(data) ? data : [data];
     // if it's an array, OK! If not, Stick it into an array
 
     $scope.gists = response.data;
     $log.info('response', response);
   } // object comes with property of data
 
-  //$log allows control, will shut down for test, better than console.log
-
   function errorHandler(response) {
     $scope.error = response.data;
     $log.error('response', response);
   }
-
 });
-
-
-
-
 // square brackets [ ] is just to say explicitly we need to use this,
 // then inject within the ()
 // We don't actually need it!!!
