@@ -60,8 +60,8 @@
 
       </ul>
 
-      <a class="btn-primary" href="#/blogposts/{{ blog }}">Read More</a>
-      <a class="btn-small" ng-click="vm.delete(blogpost)">Delete</a>
+			<a class="btn-primary" href="#/blogposts/:blog {{ gist.id }}">Read More</a>
+			<a class="btn-small" ng-click="deleteGist(gist.id)">Delete</a>
 
     </article>
 
