@@ -1,8 +1,11 @@
-require("./gists-app");
+require("./gists-app.js");
 
 angular.module('gisty').controller("SingleGistCtrl", ["GistService", "$scope", "$routeParams", "$log", function (GistService, $scope, $routeParams, $log) {
 
   // $scope.id = gists_id;
+    console.log("params: " + $routeParams.gist_id);
+    console.log("gist.id: " + gist.id);
+
 
   start();
 

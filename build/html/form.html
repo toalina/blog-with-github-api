@@ -25,6 +25,7 @@
 <form name="gistForm" ng-submit="vm.save()" ng-controller="GistFormCtrl">
   Gist Description
   <input type="text" ng-model="vm.gist.description" placeholder="Description">{{vm.gist.description}}</input>
+  <input type="text" ng-model="vm.gist.files['file1.txt'].content">
   <textarea type="text" ng-model="vm.gist.files" placeholder="Content">Gist Files</textarea>
   <input type="checkbox" ng-model="vm.gist.public" value="Public">Public</input>
   <input type="text" ng-model="vm.gist.owner.login" placeholder="Author">Gist Username</input>
