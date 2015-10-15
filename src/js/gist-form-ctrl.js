@@ -17,14 +17,33 @@ require("./gists-app.js");
     function start() {
 
       vm.gist.created_at = new Date(Date.now());
-      if ($routeParams.gist_id) {
-        BlogpostService.get($routeParams.gist_id).then(function (resp) {
+      if ($routeParams.id) {
+        BlogpostService.get($routeParams.id).then(function (resp) {
 
         vm.gist = resp.data;
         vm.gist.created_at = vm.gist.created_at || new Date(Date.now());
         });
       }
     }
+
+    function successHandler(response) {
+      vm.gist = response.data;
+      vm.newFilename = Object.keys(vm.gist.files)[0];
+      vm.newContent = vm.gist.files[vm.newFilename].content;
+
+      $log.info("response", response);
+      $log.info(vm.gist);
+    }
+
+    function errorHandler (response) {
+      $log.error("response", response);
+        } if ($routeParams.gist_id) {
+        GistService.get($routeParams.gist_id).then(function()
+
+        )
+      }
+    }
+
 
     function saveGist () {
 
@@ -55,26 +74,7 @@ require("./gists-app.js");
     }
   }]);
 
-}());
+}());  // ======= END OF IIFE =======//
 
 
-/// success/error handler for saveGist function
 
-function successHandler(response) {
-  vm.gist = response.data;
-  vm.newFilename = Object.keys(vm.gist.files)[0];
-  vm.newContent = vm.gist.files[vm.newFilename].content;
-
-  $log.info("response", response);
-  $log.info(vm.gist);
-}
-
-function errorHandler (response) {
-  $log.error("response", response);
-}
-if ($routeParams.gist_id) {
-  GistService.get($routeParams.gist_id).then(function()
-
-    )
-}
-}
