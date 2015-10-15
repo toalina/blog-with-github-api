@@ -53,7 +53,7 @@
         <li ng-repeat="file in gist.files">{{file.filename}}</li>
       </ul>
 
-      <a class="btn-primary" href="#/blogposts/{{ blog }}">Read More</a>
+			<a class="btn-primary" href="#/blogposts/:blog/{{ blog }}">Read More</a>
       <a class="btn-small" ng-click="vm.delete(blogpost)">Delete</a>
 
     </article>
