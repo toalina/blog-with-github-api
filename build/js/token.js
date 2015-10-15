@@ -1,2 +1,2 @@
 angular.module('gisty.config', [])
-.constant('token', "df2361853dc292f02d235c1d72128fef912ecba1");
+.constant('token', "1aea6927d718fa9f1f8aaf4e7cf237b8c161d2fe");

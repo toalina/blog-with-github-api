@@ -4,7 +4,7 @@ var route = require('angular-route');
 (function() {
   'use strict';
 	var app = angular.module('gisty', ['ngRoute', 'gisty.config']).
-	
+
 	config(["$routeProvider", function ($routeProvider, $scope) {
 		$routeProvider
 
@@ -30,4 +30,21 @@ var route = require('angular-route');
 	}]);
 
 })();
+
+
+///////===============/////
+// STUFF
+//    /blogs/:gist_id/:hash/:filename
+//    /blogs?gist_url=https://....... (Maybe routeParams?)
+//    #/blogs?{{gist_url}}https://...
+
+// <a href="#/blogs/{{}}"
+
+
+// this.getGistData = function (gistID) {
+// 	return {
+// 		method: "GET",
+// 		url: 'https://...../users/gists' + gistiD
+// 	}
+// }
 
