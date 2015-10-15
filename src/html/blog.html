@@ -21,16 +21,18 @@
     </ul>
   </div>
 </div>
+
+
 <section class="blog-container">
 <!--   <h1>Single Blogpost!</h1> -->
-	<article ng-controller="GistsCtrl" class="blog-summary">
-		<img src="{{gist.owner.avatar_url}}" alt="Alina's big face" height="20%" width="20%">
+	<article class="blog-summary">
+		<img src="{{ gist.owner.avatar_url }}" alt="Alina's big face" height="20%" width="20%">
     <h1>{{ gist.id }}</h1>
-		<p> {{ gist.description }}</p>
+		<p> {{ vm.gist.description }}</p>
     <ul class="blog-metadata">
-			<li>Author: {{ gist.owner.login }}</li>
-			<li class="date">Created on: {{ gist.created_at | date:"MM-dd-yyyy" }}</li>
-			<li>{{ gist.comments }} Comments</li>
+			<li>Gist login: {{ vm.gist.owner.login }}</li>
+			<li class="date">Created on: {{ vm.gist.created_at | date:"MM-dd-yyyy" }}</li>
+			<li>{{ vm.gist.comments }} Comments</li>
     </ul>
     <a class="btn-primary" href="#/blogposts/{{ blogpost._id }}">View All</a>
     <a class= "btn-small" href="#/blogposts/{{vm.blogpost._id}}/edit">Edit</a>

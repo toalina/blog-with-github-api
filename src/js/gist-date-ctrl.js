@@ -1,4 +1,4 @@
-require('./gists-app.js');
+// require('./gists-app.js');
 
 // Controller to make DATE work!
 (function() {

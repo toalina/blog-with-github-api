@@ -36,13 +36,14 @@
     </header>
 
     <!-- SOME KIND OF NG-VIEW THING -->
-<<<<<<< HEAD
-		<main ng-view>
-=======
-    <main ng-view ng-controller="GistsCtrl">
-       <div ng-include="'./html/blogpost.html'"></div>
->>>>>>> master
+    <main ng-view>
+       <!-- <div ng-include="'./html/blogpost.html'"></div> -->
+       <!-- If it's main page, include blogpost.html (ALL posts)
+            If it's a single post, include blog.html (SINGLE post)
+            If it's a form, include form.html (FORM post)
+     -->
     </main>
+
     <!-- CONTACT SECTION  -->
     <section>
       <div class="learn-more-wrapper">
