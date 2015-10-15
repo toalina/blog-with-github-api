@@ -34,7 +34,7 @@
     <p>Searching for: {{search}}</p>
     <article ng-repeat="gist in gists|pager:pagination" class="blog-summary">
      <!-- filter:search -->
-      <h1>{{gist.description}}</h1>
+      <h1>{{ gist.description }}</h1>
 
       <p> {{ gist.files }}</p>
 
@@ -59,10 +59,9 @@
     </article>
     <a class="btn-primary-alt" href="#/blogposts/new">Add New</a>
 
-    <button type="button" ng-click="$scope.pagination.prevPage()">Prev</button>
-    <button type="button" ng-click="$scope.pagination.nextPage()">Next</button>
-
   </div>
+  <button class="btn-primary-alt" type="button" ng-click="pagination.prevPage()">Prev</button>
+  <button class="btn-primary-alt" type="button" ng-click="pagination.nextPage()">Next</button>
 </section>
 
 

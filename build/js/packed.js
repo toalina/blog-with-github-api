@@ -28995,7 +28995,7 @@
 	angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, token) {
 
 	  $scope.pagination = {
-	    currentPage: 1,
+	    currentPage: 0,
 	    perPage: 4,
 	    getOffset: function () {
 	      return $scope.pagination.currentPage * $scope.pagination.perPage;
@@ -29062,7 +29062,6 @@
 	angular.module('gisty').filter('pager', function ($filter) {
 	  return function(results, pagerObj) {
 	    var filteredResults;
-	    console.log(pagerObj);
 	    filteredResults = $filter('offset')(results, pagerObj.getOffset());
 	    filteredResults = $filter('limitTo')(filteredResults, pagerObj.perPage);
 	    return filteredResults;
