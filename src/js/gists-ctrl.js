@@ -1,4 +1,5 @@
 require('./gists-app.js');
+require('./gists-services.js');
 // require('./gists-filter.js');
 //http.get can pass in a URL, then a config stuff like headers
 // get only accept 2 arguments
@@ -7,7 +8,7 @@ require('./gists-app.js');
 // { gist_id: "123",}, {headers: {..."}};...
 
 // ========= START OF CONTROLLER ======= //
-angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, token) {
+angular.module('gisty').controller('GistsCtrl', function(gistyServices, $scope, $http, $log, token) {
 
   $scope.pagination = {
     currentPage: 1,
@@ -43,12 +44,11 @@ angular.module('gisty').controller('GistsCtrl', function($scope, $http, $log, to
     $scope.error = response.data;
     $log.error('response', response);
   }
-	
-	function deleteGist(id) {
-		$http.delete('https://api.github.com/users/toalina/gists/' + id );
-
+	function gistyServicesCall(id) {
+		console.log(id, 'did it');
+		gistyServices.deleteGist(id);
 	}
-
+		
 });
 // square brackets [ ] is just to say explicitly we need to use this,
 // then inject within the ()

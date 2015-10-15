@@ -61,14 +61,14 @@
       </ul>
 
 			<a class="btn-primary" href="#/blogposts/:blog {{ gist.id }}">Read More</a>
-			<a class="btn-small" ng-click="deleteGist(gist.id)">Delete</a>
+			<a class="btn-small" ng-click="gistyServicesCall();">Delete</a>
 
     </article>
 
     <a class="btn-primary-alt" href="#/blogposts/new">Add New</a>
 
-    <a class="btn-small" ng-click="pagination.prevPage()">Prev</a>
-    <a class="btn-small" ng-click="pagination.nextPage()">Next</a>
+		<a class="btn-small" ng-click="pagination.prevPage()">Prev</a>
+		<a class="btn-small" ng-click="pagination.nextPage()">Next</a>
 
   </div>
 </section>

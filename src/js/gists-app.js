@@ -5,7 +5,7 @@ var route = require('angular-route');
   'use strict';
 	var app = angular.module('gisty', ['ngRoute', 'gisty.config']).
 
-	config(["$routeProvider", function ($routeProvider, $scope) {
+	config(["$routeProvider", function ($routeProvider) {
 		$routeProvider
 
 		////route home page blog posts//////////
