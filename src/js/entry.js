@@ -3,6 +3,8 @@ require("./gist-service.js");
 
 require("./gists-ctrl.js");
 require("./gists-filters.js");
+require("./gists-services.js");
+
 
 require("./gist-form-ctrl.js");
 require("./single-gist-ctrl.js");
