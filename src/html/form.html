@@ -27,8 +27,9 @@
   <input type="text" ng-model="newContent">
 
   <textarea type="text" ng-model="gist.files" placeholder="Content">Gist Files</textarea>
-  <input type="checkbox" ng-model="gist.public" value="Public"/>
+  <label for="public">Public</label>
+  <input type="checkbox" ng-model="gist.public" value="Public" name="public"/>
   <input type="text" ng-model="gist.owner.login" placeholder="Author"/>
-  <input type="text" ng-model="gist.created_at" placeholder="Date"/>
+  <input type="text" ng-model="gist.created_at | date: 'MM-dd-yyyy'" placeholder="Date"/>
   <input class="btn-primary-alt" type="submit" name="Submit"/>
 </form>

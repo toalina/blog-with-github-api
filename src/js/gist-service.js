@@ -23,12 +23,12 @@ var app = require("./gists-app.js");
       update: function (model) {
         return $http.patch(urlRoot + "/gists/" + model.id, model, {
           headers: {
-            'Authorization': 'token ' + token,
+            'Authorization': 'token ' + '5586e7930bc963ecab29fef165246e6f0a90f248',
           }
         });
       },
       create: function (model) {
-        return $http.patch(urlRoot + "/gists", model, {
+        return $http.patch(urlRoot + "/gists/", model, {
           headers: {
             'Authorization': 'token ' + token,
           }
@@ -36,7 +36,11 @@ var app = require("./gists-app.js");
       },
 
 			delete: function (id) {
-        return $http.delete(urlRoot + "/gists/" + id);
+        return $http.delete(urlRoot + "/gists/" + id, {
+          headers: {
+            'Authorization': 'token ' + '5586e7930bc963ecab29fef165246e6f0a90f248',
+          }
+        });
       }
     };
     return Gist;
