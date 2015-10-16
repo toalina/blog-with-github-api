@@ -1,0 +1,8 @@
+<!-- !!!!!! LOGIN FORM !!!!!! -->
+<form name="loginForm" ng-submit="login()" role="form">
+  <h1>Log in with Github username and Github token</h1>
+  <input type="text" ng-model="user.username" name="username" value="username" placeholder="username" required autofocus>
+  <input type="text" ng-model="user.token" name="token" value="token" placeholder="token" required>
+
+  <input class="btn-primary-alt" type="submit" name="Login"/>
+</form>
