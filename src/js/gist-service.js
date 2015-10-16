@@ -3,17 +3,16 @@ var app = require("./gists-app.js");
 (function () {
   "use strict";
 
-	angular.module("gisty").service("GistService", ["$http", "token", function ($http, token) {
+	angular.module("gisty").service("GistService", ["$http", "$rootScope", function ($http, $rootScope) {
 
     var urlRoot = "https://api.github.com";
-    var username = "toalina";
 
     var Gist = {
       get: function (id) {
         if (angular.isDefined(id)) {
           // return $githubGist(id).read();
           return $http.get(urlRoot + "/gists/" + id, {
-            headers: {'Authorization': 'token ' + token,}
+						headers: {'Authorization': 'token ' + $rootScope.user.token,}
           });
         } else {
           // return $http.get(urlRoot);
@@ -23,14 +22,14 @@ var app = require("./gists-app.js");
       update: function (model) {
         return $http.patch(urlRoot + "/gists/" + model.id, model, {
           headers: {
-            'Authorization': 'token ' + '5586e7930bc963ecab29fef165246e6f0a90f248',
+						'Authorization': 'token ' + $rootScope.user.token,
           }
         });
       },
       create: function (model) {
         return $http.patch(urlRoot + "/gists/", model, {
           headers: {
-            'Authorization': 'token ' + token,
+						'Authorization': 'token ' + $rootScope.user.token,
           }
         });
       },
@@ -38,7 +37,7 @@ var app = require("./gists-app.js");
 			delete: function (id) {
         return $http.delete(urlRoot + "/gists/" + id, {
           headers: {
-            'Authorization': 'token ' + '5586e7930bc963ecab29fef165246e6f0a90f248',
+						'Authorization': 'token ' + $rootScope.user.token,
           }
         });
       }

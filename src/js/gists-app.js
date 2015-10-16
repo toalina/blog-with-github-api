@@ -4,19 +4,19 @@ var route = require('angular-route');
 (function() {
   'use strict';
 
-	var app = angular.module('gisty', ['ngRoute', 'gisty.config']).
+	var app = angular.module('gisty', ['ngRoute']).
 
 	config(["$routeProvider", function ($routeProvider) {
 		$routeProvider
 
 		////route home page blog posts//////////
+		.when("/login", {
+			templateUrl: "html/login.html",
+			controller: "GistsCtrl",
+		})
 		.when("/gists", {
 			templateUrl: "html/blogpost.html",
 			controller: "GistsCtrl",
-		})
-		.when("/login", {
-			templateUrl: "html/login.html",
-			controller: "LoginCtrl",
 		})
 		/////form to make more blog posts///////
 		.when("/gists/new", {
