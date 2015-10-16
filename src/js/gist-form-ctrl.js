@@ -3,77 +3,42 @@ require("./gists-app.js");
 (function() {
 'use strict';
 
-  angular.module("gisty").controller("GistFormCtrl", ["GistService", "$routeParams", "$location", function (GistService, $routeParams, $location) {
+  angular.module("gisty").controller("GistFormCtrl", ["GistService", "$routeParams", "$location", "$scope", function(GistService, $routeParams, $location, $scope){
 
-      var vm = this;
+      $scope.save = saveBlog;
 
-      vm.save = saveGist;
-
-      vm.gist = {};
+      $scope.gist = {};
 
       start();
 
       // IF statement only works when edit
     function start() {
-
-      vm.gist.created_at = new Date(Date.now());
-      if ($routeParams.id) {
-        BlogpostService.get($routeParams.id).then(function (resp) {
-
-        vm.gist = resp.data;
-        vm.gist.created_at = vm.gist.created_at || new Date(Date.now());
-        });
-      }
+    GistService.get($routeParams.id)
+    .then(successHandler, errorHandler);
     }
 
     function successHandler(response) {
-      vm.gist = response.data;
-      vm.newFilename = Object.keys(vm.gist.files)[0];
-      vm.newContent = vm.gist.files[vm.newFilename].content;
+      var data = response.data;
+      console.log(data);
+      $scope.gist = response.data;
+      // $log.info('response', response);
+    } // object comes with property of data
 
-      $log.info("response", response);
-      $log.info(vm.gist);
+    function errorHandler(response) {
+      $scope.error = response.data;
+      // $log.error('response', response);
     }
 
-    function errorHandler (response) {
-      $log.error("response", response);
-        } if ($routeParams.gist_id) {
-        GistService.get($routeParams.gist_id).then(function(){
-					console.log(response);
-				});
-      }
-
-
-    function saveGist () {
-
+    function saveBlog () {
       var method;
 
-      method = $routeParams.gist._id ? "update" : "create";
-
-      vm.gist.files = {};
-
-      if (!vm.oldFilename) {
-        vm.gist.files[vm.oldFilename] = {
-          filename: 'some name'
-
-        }
-      }
-
-      vm.gist.files[vm.newFilename] = {
-        "content": "vm.newContent"
-      };
-
-      GistService[method](vm.gist).then(successHandler, errorHandler);
-
-
-      GistService[method](vm.gist).then(function (resp) {
-        $location.path("/gists/" + resp.data._id);
+      method = $routeParams.id ? "update" : "create";
+      GistService[method]($scope.gist).then(function (resp) {
+        $location.path("/gists/" + resp.data.id);
       });
-
     }
   }]);
 
-}());  // ======= END OF IIFE =======//
-
+}());
 
 
