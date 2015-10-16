@@ -46,6 +46,15 @@ form {
       }
     }
   }
+  label, input[type="checkbox"] {
+    display: inline;
+    font-family: font-family('primary', 'light');
+    font-size: font-size('small');
+  }
+  input[type="checkbox"] {
+    width: 2em;
+  }
+
   // input[type="submit"] {
   //   border: none;
   //   padding: 1em;
