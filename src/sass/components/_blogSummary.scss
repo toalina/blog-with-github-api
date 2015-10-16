@@ -25,6 +25,7 @@
     font-family: font-family('primary', 'light');
     font-size: font-size('medium');
     color: color('secondary');
+    padding-bottom: 0.5em;
     opacity: .7;
     flex-basis: 100%;
     order: 3;
@@ -32,6 +33,21 @@
       order: 3;
     }
   }
+
+  .link-original-view {
+    font-family: font-family('primary', 'light');
+    color: color('primary');
+    &:hover {
+      color: color('accent');
+    }
+  }
+  img {
+    border-radius: 50%;
+    height: 5em;
+    width: 5em;
+    padding: 0.5em;
+  }
+
 
   .blog-metadata {
     display: inline-block;
@@ -57,6 +73,10 @@
           display: inline-flex;
         }
       }
+    }
+    p {
+      @extend li;
+      font-family: font-family('primary', 'light');
     }
   }
 
