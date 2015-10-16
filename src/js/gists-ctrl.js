@@ -44,10 +44,8 @@ angular.module('gisty').controller('GistsCtrl', function(gistyServices, $scope, 
     $scope.error = response.data;
     $log.error('response', response);
   }
-	function gistyServicesCall(id) {
-		console.log(id, 'did it');
-		gistyServices.deleteGist(id);
-	}
+
+	gistyServices.deleteGist('61d2328dd42c359151d0');
 		
 });
 // square brackets [ ] is just to say explicitly we need to use this,
