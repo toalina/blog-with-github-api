@@ -24,6 +24,10 @@ var route = require('angular-route');
 			templateUrl: "html/blog.html",
 			controller: "SingleGistCtrl",
 		})
+		.when("/gists/:id/edit", {
+			templateUrl: "html/form.html",
+			controller: "GistFormCtrl",
+		})
 		.otherwise({
 			redirectTo: "/gists",
 		});
