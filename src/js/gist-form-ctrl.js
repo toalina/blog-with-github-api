@@ -5,7 +5,7 @@ require("./gists-app.js");
 
   angular.module("gisty").controller("GistFormCtrl", ["GistService", "$routeParams", "$location", "$scope", function(GistService, $routeParams, $location, $scope){
 
-      $scope.save = saveBlog;
+      $scope.save = saveGist;
 
       $scope.gist = {};
 
@@ -31,7 +31,7 @@ require("./gists-app.js");
       // $log.error('response', response);
     }
 
-    function saveBlog () {
+    function saveGist () {
       var method;
 
       method = $routeParams.id ? "update" : "create";
