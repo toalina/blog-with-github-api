@@ -1,5 +1,4 @@
 require('./gists-app.js');
-require('./gists-services.js');
 // require('./gists-filter.js');
 
 //http.get can pass in a URL, then a config stuff like headers
@@ -9,7 +8,7 @@ require('./gists-services.js');
 // { gist_id: "123",}, {headers: {..."}};...
 
 // ========= START OF CONTROLLER ======= //
-angular.module('gisty').controller('GistsCtrl', function(gistyServices, $scope, $http, $log, token) {
+angular.module('gisty').controller('GistsCtrl', function(GistService, $scope, $http, $log, token) {
 
   $scope.pagination = {
     currentPage: 0,
@@ -42,14 +41,9 @@ angular.module('gisty').controller('GistsCtrl', function(gistyServices, $scope, 
     $log.error('response', response);
   }
 		
-	$scope.deleteId = function() {
-		console.log('done');
-		gistyServices.deleteGist(id);
-		
-	}
-	
-	$scope.alert = function(){
-		alert('sdasdasd');
+////////// gist click events ////////////////
+	$scope.deleteGist = function(id){
+		GistService.delete(id);
 	}
 	
 });
