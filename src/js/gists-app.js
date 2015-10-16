@@ -14,7 +14,10 @@ var route = require('angular-route');
 			templateUrl: "html/blogpost.html",
 			controller: "GistsCtrl",
 		})
-
+		.when("/login", {
+			templateUrl: "html/login.html",
+			controller: "LoginCtrl",
+		})
 		/////form to make more blog posts///////
 		.when("/gists/new", {
 			templateUrl: "html/form.html",
@@ -29,10 +32,12 @@ var route = require('angular-route');
 			controller: "GistFormCtrl",
 		})
 		.otherwise({
-			redirectTo: "/gists",
+			redirectTo: "/login",
 		});
 	}]);
-})();
+
+
+})();   //// === END OF IIFE =====??
 
 
 ///////===============/////
