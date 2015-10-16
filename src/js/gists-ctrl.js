@@ -42,7 +42,7 @@ angular.module('gisty').controller('GistsCtrl', function(GistService, $scope, $h
   }
 		
 ////////// gist click events ////////////////
-	$scope.deleteGist = function(id){
+	$scope.deleteGist = function(id) {
 		GistService.delete(id);
 	}
 	
