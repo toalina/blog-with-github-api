@@ -5,7 +5,7 @@ require("./gists-app.js");
 
   angular.module("gisty").controller("GistFormCtrl", ["GistService", "$routeParams", "$location", "$scope", function(GistService, $routeParams, $location, $scope){
 
-      $scope.save = saveBlog;
+      $scope.save = saveGist;
 
       $scope.gist = {};
 
@@ -13,8 +13,10 @@ require("./gists-app.js");
 
       // IF statement only works when edit
     function start() {
+
     GistService.get($routeParams.id)
     .then(successHandler, errorHandler);
+    $scope.gist.date = $scope.gist.date || new Date(Date.now());
     }
 
     function successHandler(response) {
@@ -29,7 +31,7 @@ require("./gists-app.js");
       // $log.error('response', response);
     }
 
-    function saveBlog () {
+    function saveGist () {
       var method;
 
       method = $routeParams.id ? "update" : "create";
