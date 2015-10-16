@@ -38,15 +38,16 @@ angular.module('gisty').controller('GistsCtrl', function(GistService, $scope, $r
 		}).then(successHandler, errorHandler);  // .then() accpet 2 arguments
 
 		function successHandler(response) {
+			
 			var data = response.data;
-			$scope.gists = response.data;
+			$rootScope.gists = response.data;
 			$location.path('/gists');
-			$log.info('response', response);
+//			$log.info('response', response);
 		} // object comes with property of data
 
 		function errorHandler(response) {
-			$scope.error = response.data;
-			$log.error('response', response);
+			$rootScope.error = response.data;
+//			$log.error('response', response);
 		}
 	}
 	
