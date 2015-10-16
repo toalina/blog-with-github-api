@@ -3,7 +3,7 @@ var app = require("./gists-app.js");
 (function () {
   "use strict";
 
-  angular.module("gisty").service("GistService", ["$http", "token", function ($http, token) {
+	angular.module("gisty").service("GistService", ["$http", "token", function ($http, token) {
 
     var urlRoot = "https://api.github.com";
     var username = "toalina";
@@ -35,8 +35,8 @@ var app = require("./gists-app.js");
         });
       },
 
-      delete: function (model) {
-        return $http.delete(urlRoot + "/gists/" + model._id);
+			delete: function (id) {
+        return $http.delete(urlRoot + "/gists/" + id);
       }
     };
     return Gist;
