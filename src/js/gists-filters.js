@@ -14,7 +14,6 @@ angular.module('gisty').filter('offset', function ($filter) {
 angular.module('gisty').filter('pager', function ($filter) {
   return function(results, pagerObj) {
     var filteredResults;
-    console.log(pagerObj);
     filteredResults = $filter('offset')(results, pagerObj.getOffset());
     filteredResults = $filter('limitTo')(filteredResults, pagerObj.perPage);
     return filteredResults;
