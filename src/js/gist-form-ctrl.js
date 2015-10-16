@@ -13,8 +13,10 @@ require("./gists-app.js");
 
       // IF statement only works when edit
     function start() {
+
     GistService.get($routeParams.id)
     .then(successHandler, errorHandler);
+    $scope.gist.date = $scope.gist.date || new Date(Date.now());
     }
 
     function successHandler(response) {
